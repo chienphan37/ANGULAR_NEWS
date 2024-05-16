@@ -1,0 +1,59 @@
+<div>
+
+  <button style="display: block" #triggerV17>Show v17</button>
+
+  @defer (on interaction(triggerV17)){
+    <!--<div *ngIf="!user; else elseBlock">USER NULL</div>-->
+
+      <!--<ng-template #elseBlock> {{user?.name}}</ng-template>-->
+    @if (!user) {
+      <p>USER nul </p>
+    } @else {
+      <p> {{ user.name }}</p>
+    }
+
+    @if (post | async; as p) {
+      <div> Async content</div>
+      <div> {{ p.title }}</div>
+    } @else {
+      <div> Loading</div>
+    }
+
+    @for (postId of postIds; track postId.id; let idx = $index) {
+      <div>Id: {{ idx }} {{ postId.id }}</div>
+    } @empty {
+      <div>EMPTY</div>
+    }
+
+
+    <!--Lazy load component-->
+    <button #trigger>Load video</button>
+    <!--TRIGGER-->
+    @defer (on interaction(trigger)) {
+      <app-video/>
+      <p> interaction....</p>
+    } @placeholder {
+      <p> click button to show video </p>
+    }
+
+    @defer (when isShowVideo) {
+      <app-video/>
+      <p> WHEN....</p>
+    } @loading {
+      <p> LOADING....</p>
+    }
+    <!--//on view port : khi phần tử nằm trong phần hiển thị của màn hình mới loading (cần @placeholder để xác định vị trí
+    prefetch on idle: tải khi ứng dụng đã start xong
+    -->
+      <!--@defer(on viewport; prefetch on idle ) {-->
+    @defer (on viewport; prefetch on immediate) {
+      <app-video/>
+      <p> viewport....</p>
+    } @placeholder {
+      <p> click button to show video </p>
+    }
+
+  }
+</div>
+
+
