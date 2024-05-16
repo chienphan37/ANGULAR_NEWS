@@ -1,13 +1,22 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {RouterLink, RouterOutlet} from '@angular/router';
+import {CommonModule} from "@angular/common";
+import {VideoComponent} from "./v17/video/video.component";
+import {TestService} from "./test.service";
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [CommonModule, RouterOutlet, VideoComponent, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'angular-v17-test';
+  constructor(public testService: TestService) {
+  }
+
+  increase() {
+    this.testService.length ++;
+  }
 }
