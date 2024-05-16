@@ -4,6 +4,8 @@ import {Route, RouterLink, RouterOutlet} from "@angular/router";
 import {AdminComponent} from "./admin/admin.component";
 import {UserComponent} from "./user/user.component";
 import {CommonModule} from "@angular/common";
+import {MyToken} from "./my-token";
+import {CpDirective} from "./cp.directive";
 export const ROUTES: Route[] = [{
   path: '',
   pathMatch: 'prefix',
@@ -14,31 +16,30 @@ export const ROUTES: Route[] = [{
   ]}
 ];
 
-const MyToken = new InjectionToken<string>('myToken')
 @Component({
   selector: 'app-v14',
   standalone: true,
-  imports: [ RouterOutlet, RouterLink, CommonModule],
+  imports: [RouterOutlet, RouterLink, CommonModule, CpDirective],
   templateUrl: './v14.component.html',
   styleUrl: './v14.component.scss',
-  // providers:[
-  //   {
-  //     provide: MyToken,
-  //     useValue: 'My token'
-  //   },
-  //   {
-  //     provide: 'my token 2',
-  //     useFactory: () =>{
-  //       const token = inject(MyToken);
-  //       return token + 'value 2'
-  //     }
-  //   }
-  //
-  // ]
+  providers:[
+    {
+      provide: MyToken,
+      useValue: 'My token'
+    },
+    {
+      provide: 'my token 2',
+      useFactory: () =>{
+        const token = inject(MyToken);
+        return token + 'value 2'
+      }
+    }
+
+  ]
 })
 
 export class V14Component {
-  // token = inject(MyToken)
+  token = inject(MyToken) // chỉ dùng được inject ở đây hoặc trong constructor
   constructor(public testService: TestService) {
     // console.log(this.token)
   }
