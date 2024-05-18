@@ -1,0 +1,12 @@
+<p>v15 works!</p>
+<ul>
+  <li *ngFor="let i of list">{{i}}</li>
+</ul>
+
+
+<ol>
+  <li *ngFor='let post of post$ | async'>
+    <a [routerLink]="['post', post.id]" > {{post.title}}</a>
+  </li>
+</ol>
+<router-outlet/>
