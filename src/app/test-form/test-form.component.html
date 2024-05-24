@@ -1,0 +1,30 @@
+<div class="container">
+  <form class="sign-in-form" [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+    <h2>Sign in</h2>
+    <div class="row-control">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" formControlName="email" type="email" #email />
+        <div *ngIf="email.alt"></div>
+      </mat-form-field>
+    </div>
+
+    <pre >
+       <pre>{{ loginForm.errors | json }}</pre>
+    </pre>
+    <div class="row-control">
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="Password" formControlName="password"/>
+      </mat-form-field>
+    </div>
+    <div class="row-control">
+      <mat-checkbox formControlName="password">Remember me</mat-checkbox>
+    </div>
+    <div class="row-control row-actions">
+      <button [disabled]="loginForm.invalid"  mat-raised-button color="primary" type="submit">Sign in</button>
+    </div>
+
+
+  </form>
+</div>

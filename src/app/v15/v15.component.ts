@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AsyncPipe, NgForOf} from "@angular/common";
-import {TestService} from "../test.service";
+import {TestService} from "../service/test.service";
 import {HttpClient} from "@angular/common/http";
-import {Route, RouterLink, RouterOutlet} from "@angular/router";
-import {AdminComponent} from "../v14/admin/admin.component";
-import {UserComponent} from "../v14/user/user.component";
-import {PostComponent} from "./post/post.component";
+import {RouterLink, RouterOutlet} from "@angular/router";
+
 interface Post{
   id: number,
   title: string,

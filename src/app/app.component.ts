@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
 import {CommonModule} from "@angular/common";
 import {VideoComponent} from "./v17/video/video.component";
-import {TestService} from "./test.service";
+import {TestService} from "./service/test.service";
 
 
 @Component({

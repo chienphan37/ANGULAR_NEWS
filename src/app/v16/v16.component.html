@@ -1,0 +1,28 @@
+<p>v16 works!</p>
+
+<div>{{title()}}</div>
+
+@if (error()?.required){
+  <span style="color: red">Title is required</span>
+}
+<div>
+  <input type="text"  [value]="title()" (input)="onChange($event)">
+
+  <button (click)="addPost()" >Add</button>
+</div>
+<div>
+  @for(post of posts(); track post.id; let idx = $index){
+    <div>
+      {{idx}} - {{post.title}}
+    </div>
+  }
+</div>
+
+<div></div>
+<button (click)="onToggle() "> Show</button>
+
+@if (isShow()){
+  <p>Show</p>
+} @else {
+  <p>Hide</p>
+}

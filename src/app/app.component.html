@@ -1,10 +1,20 @@
-<h1>Chien Phan - {{testService.length}}</h1>
-<button (click)="increase()">Increase</button>
-<div class="menu">
-  <a class="menu-item" routerLink="/">Home</a>
-  <a class="menu-item" routerLink="/v12">V12</a>
-  <a class="menu-item" routerLink="/v14">V14</a>
-  <a class="menu-item" routerLink="/v17">V17</a>
+<div class="app-container">
+
+
+  <h1>Chien Phan - {{testService.length}}</h1>
+  <button (click)="increase()">Increase</button>
+  <div class="menu">
+    <a class="menu-item" routerLink="/">Home</a>
+    <a class="menu-item" routerLink="/login">Login</a>
+    <a class="menu-item" routerLink="/v12">V12</a>
+    <a class="menu-item" routerLink="/v14">V14</a>
+    <a class="menu-item" routerLink="/v15">V15</a>
+    <a class="menu-item" routerLink="/v16">V16</a>
+    <a class="menu-item" routerLink="/v17">V17</a>
+  </div>
+<router-outlet/>
+
+
+
 </div>
 
-<router-outlet/>

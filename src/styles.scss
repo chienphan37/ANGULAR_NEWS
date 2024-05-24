@@ -1,6 +1,12 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+.app-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .menu{
   display: flex;
   .menu-item{
-    padding-left: 10px;
+    padding-left: 20px;
   }
 }

@@ -15,7 +15,7 @@ function delay(ms =1000){
   styleUrl: './v17.component.scss',
 })
 
-export class V17Component {
+export default class V17Component {
   show = false;
   isShowVideo = false;
   user?:  {name: string, age: number};
